@@ -30,20 +30,16 @@ def loginPage(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-
-        user = authenticate(request,username=username,password=password)
+        user = authenticate(request, username=username, password=password)
         if user is not None:
-            login(request,user)
+            login(request, user)
             AuditLogin.objects.create(user=request.user)
-            messages.success(request, f'WELLCOME {user.username}')
+            messages.success(request, f'Bemvido, {user.username}!')
             return redirect('home')
         else:
-            messages.error(request,'Username ou Password la loos! Favor Prense fali!')
-    context = {
-        "title":"Pajina Login",
-    }
-    return render(request,'auth/login.html',context)
+            messages.error(request, 'Username Ou password salah. Favor koko Fila Fali.')
 
+    return render(request, 'auth/login.html', {"title": "Pajina Login",})
 
 @login_required
 def logout_view(request):

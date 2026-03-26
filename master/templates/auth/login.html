@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,10 +8,10 @@
     
     <!-- Bootstrap 4.6 CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'Plugins/stylelogin.css' %}">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
     <!-- Font Awesome 5 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -22,7 +23,7 @@
         <div class="brand-side">
             <div class="brand-content">
                 <div class="brand-logo-wrapper">
-                    <i class="fas fa-landmark"></i>
+                    <img src="{% static 'Image/MDHRC.png' %}">
                 </div>
                 
                 <h1 class="brand-title">MDRHC</h1>

@@ -1,0 +1,18 @@
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <span class="brand-text">AMS <br>
+                
+            </span>
+           
+        </div>
+        
+        <!-- Area yang bisa di-scroll -->
+        <div class="sidebar-nav">
+            <div class="nav-header text-center">Main</div>
+            {% if request.user.is_authenticated %}
+                {% if request.user.groups.all.0.name == 'admin' %}
+                    {% include 'main/sidebar/admin.html' %}
+                {% endif %}
+            {% endif %}
+        </div>
+    </nav>
