@@ -1,0 +1,83 @@
+{% extends "main/layout.html" %}
+{% block content %}
+
+<div class="card">
+    <div class="card-body text-center">
+        <a href="" class="btn btn-success btn-sm">
+            <i class="fa fa-plus-square"></i> Rejistu dadus
+        </a>
+        <a href="" class="btn btn-info btn-sm">
+            <i class="fa fa-print"></i> Imprime Dados
+        </a>
+    </div>
+</div>
+
+<div class="card mt-2">
+    <div class="card-header">
+        <h5 class="mb-0">Lista RIR</h5>
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+
+            <table id="example" class="table table-sm responsive" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Nu</th>
+                        <th>Nu RIR</th>
+                        <th>Fontes</th>
+                        <th>Status</th>
+                        <th>Rejistu Husi</th>
+                        <th>Item RIR</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for rir in rirs %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ rir.rir_no }}</td>
+                        <td>{{ rir.company }}</td>
+                        <td>
+                            <span class="badge 
+                                {% if rir.status == 'APPROVED' %}bg-success
+                                {% elif rir.status == 'PENDING' %}bg-warning
+                                {% elif rir.status == 'REJECTED' %}bg-danger
+                                {% else %}bg-secondary{% endif %}">
+                                {{ rir.status }}
+                            </span>
+                        </td>
+                        <td>{{ rir.created_by }}</td>
+
+                        <!-- ITEM -->
+                        <td>
+                            <table class="table table-sm mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>Sub</th>
+                                        <th>Qty</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for item in rir.items.all %}
+                                    <tr>
+                                        <td>{{ item.category }}</td>
+                                        <td>{{ item.sub_category }}</td>
+                                        <td>{{ item.quantity }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

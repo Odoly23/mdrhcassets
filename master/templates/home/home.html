@@ -1,58 +1,52 @@
 {% extends "main/layout.html" %}
 {% load static %}
-
 {% block content %}
+<section class="content mb-5">
 
-<section class="content d-flex align-items-center justify-content-center" style="min-height: 90vh; background: #f4f6f9;">
+  <div class="container-fluid">
 
-  <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-12">
+      <div class="col-md-12 col-lg-12">
 
-        <div class="card border-0 shadow-lg text-center p-4" style="border-radius: 15px;">
-          
+        <div class="card shadow-lg border-0 rounded-4 text-center p-4">
+
           <!-- HEADER -->
-          <div class="mb-3">
-            <h5 class="text-uppercase font-weight-bold text-muted mb-2" style="letter-spacing: 1px;">
-              Ministério do Desenvolvimento Rural e Habitação Comunitária
-            </h5>
-          </div>
+          <h5 class="text-uppercase fw-bold mb-2" style="color:#2f3e9e;">
+            Ministério do Desenvolvimento Rural e Habitação Comunitária
+          </h5>
 
           <hr>
 
-          <!-- TITLE -->
-          <div class="mb-3">
-            <h3 class="font-weight-bold" style="letter-spacing: 2px;">
-              SISTEMA MANAGEMENT ASSETS
-            </h3>
-          </div>
+          <h4 class="fw-bold text-dark">
+            SISTEMA MANAJEMENTO ASSETS
+          </h4>
+
+          <hr>
 
           <!-- LOGO -->
-          <div class="my-4">
-            <img src="{% static 'Image/MDHRC.png' %}" 
-                 alt="MDRHC Logo" 
+          <div class="my-3">
+            <img src="{% static 'Image/MDHRC.png'%}" 
                  class="img-fluid"
-                 style="max-height: 120px; object-fit: contain;">
+                 style="max-height: 180px;">
           </div>
 
           <hr>
 
           <!-- WELCOME -->
-          <div class="mt-3">
-            <h4 class="font-weight-bold mb-2">Bemvindo</h4>
-
-            <p class="text-muted mb-3">
-              Sistema Jestaun Assets no Monitorizasaun
-            </p>
-
-          </div>
+          <h3 class="fw-bold">
+            <a href="https://mdrhc.gov.tl/en/" 
+               target="_blank" 
+               class="text-decoration-none text-dark">
+               BEMVINDO
+            </a>
+          </h3>
 
         </div>
 
       </div>
     </div>
+
   </div>
 
 </section>
-
 {% endblock %}

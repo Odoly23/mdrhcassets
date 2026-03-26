@@ -27,6 +27,7 @@ urlpatterns = [
     path('logout/', logout_view, name='logout'),
     path('', include('master.urls')),
     path('summernote/', include('django_summernote.urls')),
+    path('Rir/', include('rir.urls'))
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

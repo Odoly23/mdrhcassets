@@ -21,7 +21,7 @@ from django.urls import resolve
 def home(request):
     context = {
         "title": "Sistema Manajemento Assets",
-        'homeActive':"active",
+        'homeactive':"active",
     }
     return render(request, 'home/home.html', context)
 

@@ -1,0 +1,28 @@
+{% load static %}
+<div class="side-navbar-wrapper">
+    <!-- Sidebar Header    -->
+    <div class="sidenav-header d-flex align-items-center justify-content-center">
+      <!-- User Info-->
+      <div class="sidenav-header-inner text-center">
+        <h2 class="h5">AMS</h2><span>{{ group|upper }}</span>
+      </div>
+      <!-- Small Brand information, appears on minimized sidebar-->
+      <div class="sidenav-header-logo"><a href="{% url 'home' %}" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">MS</strong></a></div>
+    </div>
+    <!-- Sidebar Navigation Menus-->
+    {% if user.is_authenticated %}
+			{% if user.groups.all.0.name == 'admin' %}
+				{% include 'main/navbar/admin.html' %}
+			{% elif user.groups.all.0.name == 'staff' %}
+				{% include 'main/sidebar_staff.html' %}
+			{% elif user.groups.all.0.name == 'dg' %}
+				{% include 'main/sidebar_dg.html' %}
+      {% elif user.groups.all.0.name == 'dir' %}
+        {% include 'main/sidebar_div.html' %}
+      {% elif user.groups.all.0.name == 'dep' %}
+        {% include 'main/sidebar_department.html' %}
+			{% else %}
+				{% include 'main/sidebar_admin.html' %}
+			{% endif %}
+		{% endif %}
+  </div>
